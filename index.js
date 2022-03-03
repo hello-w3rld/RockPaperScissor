@@ -1,62 +1,70 @@
-const playerSelection = "rock".toLowerCase()
-const computerSelection = computerPlay();
-let pWin = false
-let cWin = false
-let draw = false
-
-function computerPlay() {
-    options = ["rock", "paper", "scissor"]
-    return options[Math.floor(Math.random() * 3)] //return 0,1,2
-}
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection) {
-        //pWin = false
-        //cWin = false
-        //return "Draw! Try again!"
-        draw = true
-        return draw
-
-    }
-    else if ((playerSelection == "rock" && computerSelection == "scissor") || 
-            (playerSelection == "scissor" && computerSelection == "paper") ||
-            (playerSelection == "paper" && computerSelection == "rock")) 
-            {
-            pWin = true
-            cWin = false
-            draw = false
-            //return `Player chose, ${playerSelection} and Computer chose, ${computerSelection}, so Player wins!`
-            return pWin
-        }
-    else {
-        pWin = false
-        cWin = true
-        draw = false
-        //return `Player chose, ${playerSelection} and Computer chose, ${computerSelection}, so Computer wins!`
-        return cWin
-    }
-  }
-  
-
 function game () {
+    
     let playerScore = 0
     let computerScore = 0
-    for (let i = 0; i < 5; i++) {
-        playRound()
-        if (cWin) {
-            console.log(playRound(playerSelection, computerSelection));
-            computerScore++}
-        if (pWin) {
-            console.log(playRound(playerSelection, computerSelection));
-            playerScore}
-        else {
-            console.log("Round "+ i+ ": It's a draw!")
+
+    function computerPlay() {
+        options = ["rock", "paper", "scissor"]
+        return options[Math.floor(Math.random() * 3)] //return 0,1,2
+    }
+
+    function playRound(playerSelection, computerSelection) {
+
+        if (playerSelection === computerSelection) {
+
+            return "0"
         }
+        else if ((playerSelection === "rock" && computerSelection === "scissor") || 
+                (playerSelection === "scissor" && computerSelection === "paper") ||
+                (playerSelection === "paper" && computerSelection === "rock")) 
+                { 
+                    return "1"
+                }
+        else {
+            return "2"
+        }
+      }
+
+
+
+    for (let i = 0; i < 5; i++) {
+
+    
+        let playerSelection = prompt("Enter rock, paper or scissor: ").toLowerCase()
+        let computerSelection = computerPlay();
+        console.log(`Player chose: ${playerSelection}, and Computer chose: ${computerSelection}. So, Results:`)
+    
+        
+        let x = playRound(playerSelection, computerSelection)
+
+        if (x === "1") 
+        {
+            console.log("Round "+ (i+1) + ": Player wins!")
+            playerScore++
+        }
+        else if (x === "2") 
+        {
+            console.log("Round "+ (i+1) + ": Computer wins!")
+            computerScore++
+        }
+        else if (x === "0") 
+        {
+            console.log("Round "+ (i+1) + ": It's a draw!")
+        }
+        
     }
-    if (pWin > cWin) {
-        return `Player score ${playerScore} and Computer score ${computerScore}, so Player wins!`
+    if (computerScore < playerScore) {
+        return `Player score: ${playerScore} and Computer score: ${computerScore}, so Player wins in total!`
     }
-    else if (pWin < cWin) {
-        return `Player score ${playerScore} and Computer score ${computerScore}, so Computer wins!`
+    else if (computerScore > playerScore){
+        return `Player score: ${playerScore} and Computer score: ${computerScore}, so Computer wins in total!`
     }
+    else {
+        return "Oops, draw, try again"
+    }
+
+    
+
+
 }
 console.log(game())
