@@ -1,0 +1,89 @@
+body {
+    background-color: rgb(101, 101, 105);
+}
+.scoreboard {
+    background-color: rgb(122, 122, 126);
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+}
+h1 {
+    color: whitesmoke;
+    font-weight:bold;
+    text-decoration: solid;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 55px;
+    padding-bottom: 0px;
+    margin-bottom: 10px;
+}
+#subtitle {
+    color: whitesmoke;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+#poem {
+    color: rgb(207, 202, 202);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    font-size: 21px;
+    font-style:oblique;
+    padding: 15px;
+}
+.table {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin: 5px;
+}
+.right, .left {
+   
+    align-content:space-between;
+    justify-content: center;
+    color: rgb(238, 206, 206);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    font-size: 28px;
+    margin: 5px;
+    padding: 0px;
+    
+}
+.scoreboard {
+    align-content:space-between;
+    justify-content: center;
+    color: rgb(238, 206, 206);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    font-size: 21px;
+    margin: 0px;
+
+}
+#last, .top{
+    
+    align-content:center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+}
+
+.final, .replay, .start {
+    color: rgb(237, 153, 253);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    font-size: 21px;
+    border-radius: 5px;
+
+
+}
+#game {
+    padding: 5px;
+    margin: 5px;
+}
