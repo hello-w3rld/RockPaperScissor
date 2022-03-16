@@ -1,70 +1,90 @@
-function game () {
-    
-    let playerScore = 0
-    let computerScore = 0
+let start = document.getElementById('start').addEventListener('click', startGame)
+let rep = document.getElementById('rp').addEventListener('click', startGame)
+let output = document.getElementById('output')
+let fv = document.getElementById('fv')
+let pscore = 0
+let cscore = 0
+let options = document.querySelectorAll(".options");
+let pInput
 
-    function computerPlay() {
-        options = ["rock", "paper", "scissor"]
-        return options[Math.floor(Math.random() * 3)] //return 0,1,2
-    }
+function startGame() {
+  document.getElementById('cscore').textContent=0
+  document.getElementById('pscore').textContent=0
+  fv.textContent= "";
+  output.textContent="Click on your weapon!"
 
-    function playRound(playerSelection, computerSelection) {
+  pscore = 0
+  cscore = 0
+console.log("try")
+   
+  
+    options.forEach((option) => {
+      option.addEventListener("click", function () {
+       pInput = this.value
 
-        if (playerSelection === computerSelection) {
+       let cOptions = ["Rock", "Paper", "Scissors"];
+       let cInput = cOptions[Math.floor(Math.random() * 3)];
+       compareInputs(pInput, cInput);
 
-            return "0"
-        }
-        else if ((playerSelection === "rock" && computerSelection === "scissor") || 
-                (playerSelection === "scissor" && computerSelection === "paper") ||
-                (playerSelection === "paper" && computerSelection === "rock")) 
-                { 
-                    return "1"
-                }
-        else {
-            return "2"
-        }
-      }
-
-/*
-
-    for (let i = 0; i < 5; i++) {
-
-    
-        let playerSelection = prompt("Enter rock, paper or scissor: ").toLowerCase()
-        let computerSelection = computerPlay();
-        console.log(`Player chose: ${playerSelection}, and Computer chose: ${computerSelection}. So, Results:`)
-    
-        
-        let x = playRound(playerSelection, computerSelection)
-
-        if (x === "1") 
-        {
-            console.log("Round "+ (i+1) + ": Player wins!")
-            playerScore++
-        }
-        else if (x === "2") 
-        {
-            console.log("Round "+ (i+1) + ": Computer wins!")
-            computerScore++
-        }
-        else if (x === "0") 
-        {
-            console.log("Round "+ (i+1) + ": It's a draw!")
-        }
-        
-    }
-    if (computerScore < playerScore) {
-        return `Player score: ${playerScore} and Computer score: ${computerScore}, so Player wins in total!`
-    }
-    else if (computerScore > playerScore){
-        return `Player score: ${playerScore} and Computer score: ${computerScore}, so Computer wins in total!`
-    }
-    else {
-        return "Oops, draw, try again"
-    }
-*/
+       checkWinner()
+      });
+   
+    });}
     
 
+//comapre
+function compareInputs(pInput, cInput) {
+  
+  if (pInput === cInput) {
+    output.textContent = `DRAW! Nobody wins this round as player chose ${pInput} and computer chose ${cInput}`
+  }
+
+  else if ((pInput === "Rock" && cInput === "Scissors") || 
+  (pInput === "Scissors" && cInput === "Paper") ||
+  (pInput === "Paper" && cInput === "Rock")) {
+    pscore++
+    document.getElementById('pscore').textContent=pscore
+    output.textContent = `Player wins this round as player chose ${pInput} and computer chose ${cInput}`
+  }
+
+ else {
+  
+  cscore++;
+  document.getElementById('cscore').textContent=cscore
+  output.textContent = `Player loses this round as player chose ${pInput} and computer chose ${cInput}`
+ }
+} 
+
+
+function checkWinner() {
+  if (pscore === 5 || cscore === 5) {
+    if (pscore === 5)
+      fv.textContent = "You win the game! Congratulations!"
+    else 
+      fv.textContent= "Computer wins the game! Try again next time!"
+
+
+  }
 
 }
-console.log(game())
+/*
+function startGame() {
+
+   // document.getElementById('round').textContent = "Round " + i
+    console.log("try")
+    let pInput;
+  
+    options.forEach((option) => {
+      option.addEventListener("click", function () {
+       pInput = this.value;
+
+       let cOptions = ["Rock", "Paper", "Scissors"];
+       let cInput = cOptions[Math.floor(Math.random() * 3)];
+       compareInputs(pInput, cInput);
+      });
+
+    
+    });
+    checkWinner()
+  
+  }*/

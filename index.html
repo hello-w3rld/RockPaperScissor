@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissor</title>
-    <script src="index.js"></script>
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -25,14 +24,13 @@
             May the odds be in your favor!<br>
             Again and again!
         </h5>
-        <a href="#last"><button class="start">Start</button></a>
+        <a href="#last"><button id="start">Start</button></a>
         <br>
         <br>
         </div>
         <hr>
         <hr>
         <div class = "scoreboard">
-            <h3 id="round">Round X</h3>
             <h4 id="output">Click on your weapon!</h4>
         </div>
         <hr>
@@ -40,25 +38,25 @@
    <div class="table">
     <div class="left">
         <h3 id="game">Player</h3>
-        <button class="pr"><img src="rock.png" width="100px" height="100px"><p>Rock</p></button>
-        <button class="pp"><img src="paper.jpg" width="100px" height="100px"><p>Paper</p></button>
-        <button class="ps"><img src="scissor.jpg" width="100px" height="100px"><p>Scissor</p></button>
-        <h4 id="game">Score: </h4>
+        <button id="pr" class="options" value="Rock"><img src="rock.png" width="100px" height="100px"><p>Rock</p></button>
+        <button id="pp" class="options" value="Paper"><img src="paper.jpg" width="100px" height="100px"><p>Paper</p></button>
+        <button id="pss" class="options" value="Scissors"><img src="scissor.jpg" width="100px" height="100px"><p>Scissor</p></button>
+        <h4 class="game" >Score: <span id="pscore">0</span></h4>
     </div>
     <div class="right">
         <h3 id="game">Machine</h3>
-        <button class="mr"><img src="rock.png" width="100px" height="100px"><p>Rock</p></button>
-        <button class="mp"><img src="paper.jpg" width="100px" height="100px"><p>Paper</p></button>
-        <button class="ms"><img src="scissor.jpg" width="100px" height="100px"><p>Scissor</p></button>
-        <h4 id="game">Score: </h4>
+        <button id="mr"><img src="rock.png" width="100px" height="100px"><p>Rock</p></button>
+        <button id="mp"><img src="paper.jpg" width="100px" height="100px"><p>Paper</p></button>
+        <button id="ms"><img src="scissor.jpg" width="100px" height="100px"><p>Scissor</p></button>
+        <h4 class="game" >Score: <span id="cscore">0</span></h4>
     </div>
    </div>
    <hr>
    <div id="last">
-       <h3 class="final">Final Verdict: Player lost</h3>
-       <button class="replay">Replay</button>
+       <h3 class="final">Final Verdict: <span id = "fv"></span></h3>
+       <button class="replay" id="rp">Replay</button>
        <br>
 </div>
-
+<script src="index.js"></script>
 </body>
 </html>

@@ -50,7 +50,7 @@ h1 {
     color: rgb(238, 206, 206);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
-    font-size: 28px;
+    font-size: 20px;
     margin: 5px;
     padding: 0px;
     
@@ -74,7 +74,7 @@ h1 {
     padding: 0px;
 }
 
-.final, .replay, .start {
+.final, .replay, #start {
     color: rgb(237, 153, 253);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
@@ -83,7 +83,7 @@ h1 {
 
 
 }
-#game {
+.class {
     padding: 5px;
     margin: 5px;
 }
